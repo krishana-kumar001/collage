@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Area Calculator</title>
+</head>
+<body>
+  <h3>Area Calculator</h3>
+  <select id="shape" onchange="updateInputs()">
+    <option value="triangle">Triangle</option>
+    <option value="rectangle">Rectangle</option>
+    <option value="square">Square</option>
+  </select><br>
+
+  <div id="inputs"></div>
+
+  <button onclick="calculate()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function updateInputs() {
+      const shape = document.getElementById("shape").value;
+      const inputs = {
+        triangle: `<input id="a" placeholder="Base"><input id="b" placeholder="Height">`,
+        rectangle: `<input id="a" placeholder="Length"><input id="b" placeholder="Width">`,
+        square: `<input id="a" placeholder="Side">`
+      };
+      document.getElementById("inputs").innerHTML = inputs[shape];
+    }
+
+    function calculate() {
+      const shape = document.getElementById("shape").value;
+      const a = parseFloat(document.getElementById("a").value);
+      const b = parseFloat(document.getElementById("b")?.value || 0);
+      let area = 0;
+
+      if (shape === "triangle") area = 0.5 * a * b;
+      else if (shape === "rectangle") area = a * b;
+      else if (shape === "square") area = a * a;
+
+      document.getElementById("result").textContent = `Area: ${area}`;
+    }
+
+    updateInputs(); // Initialize inputs on load
+  </script>
+</body>
+</html>

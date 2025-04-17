@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fibonacci Series Generator</title>
+</head>
+<body>
+
+  <h2>Fibonacci Series Generator</h2>
+  <input type="number" id="termInput" />
+  <button onclick="generateFibonacci()">Generate</button>
+  <p id="result"></p>
+
+  <script>
+    function generateFibonacci() {
+      const n = parseInt(document.getElementById("termInput").value);
+      const result = document.getElementById("result");
+
+      if (isNaN(n) || n <= 0) {
+        result.textContent = "Please enter a positive number.";
+        return;
+      }
+
+      let fibSeries = [];
+      let a = 0, b = 1;
+
+      for (let i = 0; i < n; i++) {
+        fibSeries.push(a);
+        const next = a + b;
+        a = b;
+        b = next;
+      }
+
+      result.textContent = `Fibonacci Series (${n} terms): ${fibSeries.join(', ')}`;
+    }
+  </script>
+
+</body>
+</html>
