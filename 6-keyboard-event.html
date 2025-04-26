@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function call(x) {
+            document.getElementById("form").style.background = x;
+        }
+    </script>
+</head>
+<body>
+    <div id="form">
+        <h1 id="h1">Keyboard Event</h1>
+        
+        <p>onkeydown</p>
+        <input type="text" onkeydown="call(this.value)">
+
+        <p>onkeyup</p>
+        <input type="text" onkeyup="document.getElementById('form').style.background = this.value">
+
+        <p>onkeypress</p>
+        <input type="text" onkeypress="document.getElementById('form').style.background = this.value">
+    </div>
+
+    <style>
+        body {
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            background-color: rgb(128, 128, 128);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        #form {
+            width: 300px; /* updated from 50px */
+            margin: 100px auto;
+            border: 2px solid #000;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 2px 2px 15px black;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        input {
+            width: 225px;
+            border: 1px solid #000;
+            padding: 8px;
+            background-color: #fff;
+            box-shadow: inset 2px 2px 10px #000;
+            margin-bottom: 15px;
+        }
+    </style>
+</body>
+</html>

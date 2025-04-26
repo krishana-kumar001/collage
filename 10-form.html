@@ -1,0 +1,19 @@
+<html>
+    <script>
+        function valid_data() {
+            let x=document.getElementById("t1").value;
+            if(x=="") {
+            alert("Name Can't be  empty");
+            return false;
+            }
+            return true;
+        }
+    </script>
+    <form onsubmit="return valid_data()" method="post">
+        Name:<input type="text" id="t1" required>
+        Age:<input type="text" id="t2" required>
+        E-mail<input type="text" id="t3" required>
+        <button>Submit</button>
+
+    </form>
+</html>
